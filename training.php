@@ -28,7 +28,7 @@ $tweetText = $TodaysTweetsArray[$randTweetKey][2];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Build A traning set</title>
-<? include('CSS/css.php'); ?>
+
 
 <style>
 .button {
@@ -119,7 +119,6 @@ blockquote.twitter-tweet a[href^="https://twitter.com"] {
           var id = $("#ID").val();
           var text = $("#text").val();
           var rating = $("input[type=radio]:checked").val();
-          var oRating = $("#oRating").val();
           var data = $("#user").val();
 		    localStorage["myData"] = data;
 
@@ -131,7 +130,6 @@ blockquote.twitter-tweet a[href^="https://twitter.com"] {
               $.post("insert.php", {
                   ID: id,
                   text: text,
-                  oRating: oRating,
                   rating: rating
               }, function(data) {
                  //document.write("<br>  what did I do? " + data);
@@ -176,7 +174,6 @@ if (strlen($tweetRating) > 3) {
       <!--<input type="text" name="user" id="user"> enter user name. -->
       <input type="hidden" name="ID" id="ID" value="<?php echo $tweetID ?> " />
       <input type="hidden" name="text" id="text" value="<?php echo $tweetText ?>" />
-      <input type="hidden" name="oRating" id="oRating" value="<?php echo $tweetRating ?>" />
       <input type="button" id="submit" value="Submit"> </input>
 </form>
 
